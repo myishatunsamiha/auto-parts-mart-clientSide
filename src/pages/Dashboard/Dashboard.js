@@ -7,30 +7,46 @@ import auth from '../../firebase.init';
 
 const Dashboard = () => {
     const [user] = useAuthState(auth);
-    // const [admin] = UseAdmin(user);
+    const [admin] = UseAdmin(user);
 
     return (
         <div class="drawer drawer-mobile">
             <input id="dashboard-sidebar" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content">
                 {/* <!-- Page content here --> */}
-                <h2 class='text-3xl font-bold text-purple-500'>Dashboard</h2>
+                {/* <h2 class='text-3xl font-bold text-purple-500'>Dashboard</h2> */}
                 <Outlet></Outlet>
             </div>
             <div class="drawer-side">
                 <label for="dashboard-sidebar" class="drawer-overlay"></label>
-                <ul class="menu p-4 overflow-y-auto w-48 bg-base-100 text-base-content">
-                    {/* <!-- Sidebar content here --> */}
-                    <li><Link to='/dashboard'>My Appointments</Link></li>
-                    <li><Link to='/dashboard/review'>My Reviews</Link></li>
-                    <li><Link to='/dashboard/history'>My History</Link></li>
-                    {/* {admin &&
+                <ul class="menu p-4 overflow-y-auto w-50 bg-gray-500 text-white">
+
+                    {/* <!-- link for both admin and non-admin user --> */}
+                    <li><Link to='/dashboard'>My Profile</Link></li>
+
+
+                    {/* <!-- link for only non-admin user --> */}
+                    {!admin &&
                         <>
-                            <li><Link to='/dashboard/users'>All Users</Link></li>
-                            <li><Link to='/dashboard/addDoctor'>Add a Doctor</Link></li>
-                            <li><Link to='/dashboard/manageDoctors'>Manage Doctors</Link></li>
+                            <li><Link to='/dashboard/myOrders'>My Orders</Link></li>
+                            <li><Link to='/dashboard/addReview'>Add a Review</Link></li>
                         </>
-                    } */}
+                    }
+
+
+                    {/* <!-- link for only admin user --> */}
+                    {admin &&
+                        <>
+                            <li><Link to='/dashboard/allOrders'>Manage All Orders</Link></li>
+                            <li><Link to='/dashboard/addProduct'>Add a Product</Link></li>
+                            <li><Link to='/dashboard/makeAdmin'>Make Admin</Link></li>
+                            <li><Link to='/dashboard/manageProducts'>Manage Products</Link></li>
+                        </>
+                    }
+
+
+
+
                     {/* <li><Link to='/dashboard/users'>All Users</Link></li> */}
 
 
