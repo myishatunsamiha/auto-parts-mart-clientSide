@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
@@ -9,6 +9,7 @@ import Loading from './Loading';
 
 const Navbar = () => {
     const [user, loading, error] = useAuthState(auth);
+
 
     const logout = () => {
         localStorage.removeItem('accessToken');
@@ -24,14 +25,16 @@ const Navbar = () => {
         {
             user && <li><Link to='/dashboard'>Dashboard</Link></li>
         }
-        <li>{user ? <button className="btn btn-ghost" onClick={logout}>Sign Out</button>
-            : loading ? <button className="btn btn-ghost loading"></button> : <Link to='/login'>Login</Link>}</li>
+
+        {user ?
+            <li><button className="btn btn-ghost" onClick={logout}>Sign Out</button> </li>
+            : loading ? <button className="btn btn-ghost loading"></button> : <li><Link to='/login'>Login</Link></li>}
     </>;
 
     return (
         <div>
 
-            <div className="navbar bg-gray-500 text-white">
+            <div className="navbar bg-gray-600 text-white">
                 <div className="navbar-start">
                     {/* code for small screen */}
                     <div className="dropdown">
@@ -53,6 +56,9 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-end">
+                    {
+                        user && <a className='px-5 text-yellow-500'>Active: {user.displayName}</a>
+                    }
                     <label for="dashboard-sidebar" tabIndex="1" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>

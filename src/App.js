@@ -6,15 +6,23 @@ import Home from './pages/Home/Home';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Login from './pages/Login/Login';
+import Footer from './pages/Shared/Footer';
+import Signup from './pages/Login/Signup';
+import RequireAuth from './pages/Login/RequireAuth';
+import Purchase from './pages/Purchase/Purchase';
 
 
 function App() {
   return (
-    <div className='max-w-7xl mx-auto'>
+    <div className='bgImg max-w-7xl mx-auto'>
       <Navbar></Navbar>
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} ></Route>
+        <Route path="login" element={<Login />} ></Route>
+        <Route path="signup" element={<Signup />} ></Route>
+        <Route path="appointment" element={<RequireAuth><Purchase /></RequireAuth>} />
 
       </Routes>
 
@@ -35,6 +43,7 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
       </Routes> */}
+      <Footer></Footer>
       <ToastContainer />
     </div>
   );
