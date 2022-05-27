@@ -31,7 +31,7 @@ const Navbar = () => {
     return (
         <div>
 
-            <div className="navbar bg-gray-400 text-white">
+            <div className="navbar bg-gray-500 text-white">
                 <div className="navbar-start">
                     {/* code for small screen */}
                     <div className="dropdown">

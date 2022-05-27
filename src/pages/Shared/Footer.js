@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     const year = new Date().getFullYear();
     return (
-        <footer class="footer footer-center p-10 bg-gray-400 text-white rounded">
+        <footer class="footer footer-center p-10 bg-gray-600 text-white rounded">
             <div class="grid grid-flow-col gap-4">
                 <Link to='/'>Home</Link>
                 <Link to='/blogs'>Blogs</Link>
