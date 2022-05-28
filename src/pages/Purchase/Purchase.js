@@ -55,6 +55,7 @@ const Purchase = () => {
             productName: product.name,
             orderedQnt: data.quantity,
             price: product.price,
+            img: product.img,
 
             userName: user.displayName,
             userEmail: user.email,
