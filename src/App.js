@@ -21,6 +21,7 @@ import AddProduct from './pages/Dashboard/AddProduct';
 import MakeAdmin from './pages/Dashboard/MakeAdmin';
 import ManageProducts from './pages/Dashboard/ManageProducts';
 import Payment from './pages/Dashboard/Payment';
+import NotFound from './pages/NotFound/NotFound';
 
 
 function App() {
@@ -44,8 +45,7 @@ function App() {
           <Route path='manageProducts' element={<RequireAdmin><ManageProducts></ManageProducts></RequireAdmin>}></Route>
 
         </Route>
-
-
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
 
 
