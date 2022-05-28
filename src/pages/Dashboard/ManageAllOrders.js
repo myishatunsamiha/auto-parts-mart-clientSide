@@ -118,7 +118,7 @@ const ManageAllOrders = () => {
                                         }
 
                                         {
-                                            (order.paid && !order.shipped) && <label for="delete-confirm-modal" class="btn btn-xs btn-error" onClick={() => handleShipping(order)}>Ship</label>
+                                            (order.paid && !order.shipped) && <label for="delete-confirm-modal" class="btn btn-xs btn-error" onClick={() => handleShipping(order)}>Ship Now</label>
                                         }
 
                                     </td>
