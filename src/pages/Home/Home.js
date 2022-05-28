@@ -23,6 +23,7 @@ const Home = () => {
 
             {/* extra section  */}
             <HightLights></HightLights>
+            <Footer></Footer>
         </div>
     );
 };
