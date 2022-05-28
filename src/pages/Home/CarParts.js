@@ -1,6 +1,20 @@
 import React from 'react';
+import { useQuery } from 'react-query';
+import Loading from '../Shared/Loading';
 
 const CarParts = () => {
+    const { data: products, isLoading } = useQuery('products', () => fetch('http://localhost:5000/Product', {
+        headers: {
+            method: 'GET',
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res => res.json()));
+
+
+    if (isLoading) {
+        return <Loading></Loading>;
+    }
+
     return (
         <div className='my-5 p-10'>
             <p className='text-4xl font-bold text-gray-700 text-center p-4'>Car Parts</p>

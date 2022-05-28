@@ -19,7 +19,8 @@ const ManageProducts = () => {
     }
 
     const handleDelete = product => {
-        fetch(`http://localhost:5000/product/${product.id}`, {
+
+        fetch(`http://localhost:5000/product/${product._id}`, {
             method: 'DELETE',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -49,7 +50,8 @@ const ManageProducts = () => {
                             <th>Price(per unit)</th>
                             <th>Min Qty</th>
                             <th>Available Qty</th>
-                            <th>Delete a Product</th>
+                            <th>Delete</th>
+                            <th>Update</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -70,6 +72,10 @@ const ManageProducts = () => {
                                     <td>{product.availableQnt}</td>
                                     <td>
                                         <label for="delete-confirm-modal" class="btn btn-xs btn-error" onClick={() => setDeletingProduct(product)}>Delete</label>
+                                    </td>
+
+                                    <td>
+                                        <button class="btn btn-xs btn-warning">Update</button>
                                     </td>
                                 </tr>
                             )
