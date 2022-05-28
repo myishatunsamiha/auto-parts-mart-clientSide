@@ -26,6 +26,7 @@ import Portfolio from './pages/Portfolio/Portfolio';
 import Blogs from './pages/Blogs/Blogs';
 
 
+
 function App() {
   return (
     <div className='bgImg max-w-7xl mx-auto'>
@@ -35,7 +36,8 @@ function App() {
         <Route path="/" element={<Home />} ></Route>
         <Route path="login" element={<Login />} ></Route>
         <Route path="signup" element={<Signup />} ></Route>
-        <Route path="blogs" element={<Blogs />} ></Route>
+        <Route path="blogs" element={<Blogs></Blogs>} ></Route>
+
         <Route path="portfolio" element={<Portfolio />} ></Route>
         <Route path="purchase/:id" element={<RequireAuth><Purchase /></RequireAuth>} />
         <Route path="dashboard" element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
@@ -53,23 +55,7 @@ function App() {
       </Routes>
 
 
-      {/* <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="appointment" element={<RequireAuth><Appointment /></RequireAuth>} />
-        <Route path="dashboard" element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
-          <Route index element={<MyAppointments></MyAppointments>}></Route>
-          <Route path='review' element={<MyReview></MyReview>}></Route>
-          <Route path='history' element={<MyHistory></MyHistory>}></Route>
-          <Route path='payment/:id' element={<Payment></Payment>}></Route>
-          <Route path='users' element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
-          <Route path='addDoctor' element={<RequireAdmin><AddDoctor></AddDoctor></RequireAdmin>}></Route>
-          <Route path='manageDoctors' element={<RequireAdmin><ManageDoctors></ManageDoctors></RequireAdmin>}></Route>
-        </Route>
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<Signup />} />
-      </Routes> */}
-      {/* <Footer></Footer> */}
+
       <ToastContainer />
     </div>
   );

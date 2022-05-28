@@ -1,0 +1,22 @@
+[
+    {
+        "q": "How will you improve the performance of a React Application?",
+        "ans": "Here are the few rules we may follow to make application performance better. We my use a proper key for mapping instead of using index. We should not spread props on DOM elements as it adds unknown html attributes. We may use CDN to make the website content load faster. We need to avoid unnecessary renders and do image and dependency optimization."
+    },
+    {
+        "q": "How does prototypical inheritance work?",
+        "ans": "Prototypical inheritance is the process of inheriting or accessing the properties and methods of an existing object. It is done using the keyword __proto__. Example: let, a = {care:true}; a.__proto__ = b; console.log(a.care); It will return true. Here, b object is the prototype of a object."
+    },
+    {
+        "q": "You have an array of products. Each product has a name, price, description, etc. How will you implement a search to find products by name?",
+        "ans": "In MongoDB, we need to do find() operation along with project({name:1}) on the product collection to get the data with only the expected fields(here, name). It will also return the id of the collection by default. Projection will exclude other fields. Example: const cursor = productCollection.find().project({name:1});"
+    },
+    {
+        "q": "What is a unit test? Why should write unit tests?",
+        "ans": "It is a software development process where small units or components of a software are tested. It helps us to check and fix bugs in early development stage. It helps developers to understand the practicality of their code base and enables them to make changes quickly and securely. It also helps with code reusability."
+    },
+    {
+        "q": "What are the different ways to manage a state in a React application?",
+        "ans": "There are four types of states in react. Local, global, server and url. Local states are managed in one or another component(mostly managed by useState() hook). Global states are managed in multiple components(where we need to add and update data in multiple places in our app). Server states are data that comes from external servers, using react query and swr we can manage them easily. Url state is the data in the urls bar which includes pathname and query parameters, there are hooks like useHistory(), useLocation(), useParams(), etc to manage url states."
+    }
+]
