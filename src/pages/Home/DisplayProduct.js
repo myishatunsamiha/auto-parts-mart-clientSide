@@ -1,14 +1,10 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 
 const DisplayProduct = () => {
-    const { data: products, isLoading } = useQuery('products', () => fetch('http://localhost:5000/Product', {
-        headers: {
-            method: 'GET',
-            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-        }
-    }).then(res => res.json()));
+    const { data: products, isLoading } = useQuery('products', () => fetch('http://localhost:5000/producthome').then(res => res.json()));
 
 
     if (isLoading) {
@@ -32,7 +28,7 @@ const DisplayProduct = () => {
                                     <p>min order quantity: {product.minQnt}</p>
                                     <p>available quantity: {product.availableQnt}</p>
                                     <p>per unit price: {product.price}</p>
-                                    <button class="btn btn-primary">Purchase</button>
+                                    <Link to={`/purchase/${product._id}`}><button class="btn btn-primary">Purchase</button></Link>
                                 </div>
                             </div>
                         )
