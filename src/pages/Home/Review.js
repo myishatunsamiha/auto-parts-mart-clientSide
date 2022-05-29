@@ -22,7 +22,7 @@ const Review = () => {
                                 <p className='flex flex-row-reverse justify-between'> <span className='text-gray-400 text-sm'>Email </span><span className='font-bold text-gray-500'>{review?.userEmail}</span></p>
                                 <p className='flex flex-row-reverse justify-between'> <span className='text-gray-400 text-sm'>Review </span> <span className='font-bold'>{review?.review}</span></p>
                                 <p className='flex flex-row-reverse justify-between'> <span className='text-gray-400 text-sm'>Rating </span> <span>
-                                    <Rating initialRating={3.5}
+                                    <Rating initialRating={review.rating}
                                         readonly />
                                 </span></p>
                                 {/* <p> <span className='text-gray-400'>Rating: </span> <span className='font-bold'>{review?.rating}</span></p> */}

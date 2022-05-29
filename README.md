@@ -1,8 +1,8 @@
-# Grocery Stock House - A Inventory website
+# Auto Parts Mart - A Car parts manufacturing company
 
-This website is designed for a car parts manufacturing company called Auto Parts Mart.
+This website is designed for a car parts manufacturing company called Auto Parts Mart to take orders from customers and deliver their products to the customers' door-step.
 
-## [https://grocery-store-house.web.app](https://grocery-store-house.web.app)
+## [https://auto-parts-mart.web.app/](https://auto-parts-mart.web.app/)
 
 
 #### What I have done in this project: 
