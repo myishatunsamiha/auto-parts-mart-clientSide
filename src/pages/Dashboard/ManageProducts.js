@@ -6,7 +6,7 @@ import Loading from '../Shared/Loading';
 const ManageProducts = () => {
     const [deletingProduct, setDeletingProduct] = useState(null);
 
-    const { data: products, isLoading, refetch } = useQuery('products', () => fetch('http://localhost:5000/Product', {
+    const { data: products, isLoading, refetch } = useQuery('products', () => fetch('https://peaceful-badlands-33828.herokuapp.com/Product', {
         headers: {
             method: 'GET',
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -20,7 +20,7 @@ const ManageProducts = () => {
 
     const handleDelete = product => {
 
-        fetch(`http://localhost:5000/product/${product._id}`, {
+        fetch(`https://peaceful-badlands-33828.herokuapp.com/product/${product._id}`, {
             method: 'DELETE',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -40,8 +40,8 @@ const ManageProducts = () => {
     return (
         <div>
 
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>
@@ -60,8 +60,8 @@ const ManageProducts = () => {
                                 <tr key={product._id}>
                                     <th>{index + 1}</th>
                                     <td>
-                                        <div class="avatar">
-                                            <div class="w-12 rounded">
+                                        <div className="avatar">
+                                            <div className="w-12 rounded">
                                                 <img src={product.img} alt={product.name} />
                                             </div>
                                         </div>
@@ -71,11 +71,11 @@ const ManageProducts = () => {
                                     <td>{product.minQnt}</td>
                                     <td>{product.availableQnt}</td>
                                     <td>
-                                        <label for="delete-confirm-modal" class="btn btn-xs btn-error" onClick={() => setDeletingProduct(product)}>Delete</label>
+                                        <label htmlFor="delete-confirm-modal" className="btn btn-xs btn-error" onClick={() => setDeletingProduct(product)}>Delete</label>
                                     </td>
 
                                     <td>
-                                        <button class="btn btn-xs btn-warning">Update</button>
+                                        <button className="btn btn-xs btn-warning">Update</button>
                                     </td>
                                 </tr>
                             )
@@ -89,13 +89,13 @@ const ManageProducts = () => {
 
             {deletingProduct &&
                 <>
-                    <input type="checkbox" id="delete-confirm-modal" class="modal-toggle" />
-                    <div class="modal modal-bottom sm:modal-middle">
-                        <div class="modal-box">
-                            <h3 class="font-bold text-lg">Are you sure you want to delete Product {deletingProduct.name}?</h3>
-                            <div class="modal-action">
-                                <button class="btn btn-xs btn-error" onClick={() => handleDelete(deletingProduct)}>Delete</button>
-                                <label for="delete-confirm-modal" class="btn btn-xs">Cancel</label>
+                    <input type="checkbox" id="delete-confirm-modal" className="modal-toggle" />
+                    <div className="modal modal-bottom sm:modal-middle">
+                        <div className="modal-box">
+                            <h3 className="font-bold text-lg">Are you sure you want to delete Product {deletingProduct.name}?</h3>
+                            <div className="modal-action">
+                                <button className="btn btn-xs btn-error" onClick={() => handleDelete(deletingProduct)}>Delete</button>
+                                <label htmlFor="delete-confirm-modal" className="btn btn-xs">Cancel</label>
                             </div>
                         </div>
                     </div>

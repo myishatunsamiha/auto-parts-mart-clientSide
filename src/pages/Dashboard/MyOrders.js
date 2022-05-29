@@ -15,7 +15,7 @@ const MyOrders = () => {
 
     // useEffect(() => {
     //     if (user) {
-    //         fetch(`http://localhost:5000/order?email=${user.email}`,
+    //         fetch(`https://peaceful-badlands-33828.herokuapp.com/order?email=${user.email}`,
     //             {
     //                 method: 'GET',
     //                 headers: {
@@ -38,7 +38,7 @@ const MyOrders = () => {
     // }, [user]);
 
 
-    const { data: orders, isLoading, refetch } = useQuery(['myOrders', user], () => fetch(`http://localhost:5000/order?email=${user?.email}`, {
+    const { data: orders, isLoading, refetch } = useQuery(['myOrders', user], () => fetch(`https://peaceful-badlands-33828.herokuapp.com/order?email=${user?.email}`, {
         headers: {
             method: 'GET',
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -54,7 +54,7 @@ const MyOrders = () => {
 
     const handleDelete = order => {
 
-        fetch(`http://localhost:5000/order/${order._id}`, {
+        fetch(`https://peaceful-badlands-33828.herokuapp.com/order/${order._id}`, {
             method: 'DELETE',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -73,9 +73,8 @@ const MyOrders = () => {
 
     return (
         <div>
-            <h3>My orders: {orders?.length}</h3>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>
@@ -89,12 +88,12 @@ const MyOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            orders.map((order, index) =>
+                            orders?.map((order, index) =>
                                 <tr key={index}>
                                     <th>{index + 1}</th>
                                     <th>
-                                        <div class="avatar">
-                                            <div class="w-16 rounded">
+                                        <div className="avatar">
+                                            <div className="w-16 rounded">
                                                 <img src={order.img} alt="Tailwind-CSS-Avatar-component" />
                                             </div>
                                         </div>
@@ -112,7 +111,7 @@ const MyOrders = () => {
                                     </th>
                                     <td>
                                         {
-                                            !order.paid && <label for="delete-confirm-modal" class="btn btn-xs btn-error" onClick={() => setDeletingOrder(order)}>Delete</label>
+                                            !order.paid && <label htmlFor="delete-confirm-modal" className="btn btn-xs btn-error" onClick={() => setDeletingOrder(order)}>Delete</label>
                                         }
 
                                     </td>
@@ -126,13 +125,13 @@ const MyOrders = () => {
 
             {deletingOrder &&
                 <>
-                    <input type="checkbox" id="delete-confirm-modal" class="modal-toggle" />
-                    <div class="modal modal-bottom sm:modal-middle">
-                        <div class="modal-box">
-                            <h3 class="font-bold text-lg">Are you sure you want to cancel your order?</h3>
-                            <div class="modal-action">
-                                <button class="btn btn-xs btn-error" onClick={() => handleDelete(deletingOrder)}>Delete</button>
-                                <label for="delete-confirm-modal" class="btn btn-xs">Cancel</label>
+                    <input type="checkbox" id="delete-confirm-modal" className="modal-toggle" />
+                    <div className="modal modal-bottom sm:modal-middle">
+                        <div className="modal-box">
+                            <h3 className="font-bold text-lg">Are you sure you want to cancel your order?</h3>
+                            <div className="modal-action">
+                                <button className="btn btn-xs btn-error" onClick={() => handleDelete(deletingOrder)}>Delete</button>
+                                <label htmlFor="delete-confirm-modal" className="btn btn-xs">Cancel</label>
                             </div>
                         </div>
                     </div>

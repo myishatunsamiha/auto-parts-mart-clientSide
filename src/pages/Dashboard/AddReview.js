@@ -17,7 +17,7 @@ const AddReview = () => {
         }
 
         // post a review to mongodb database
-        fetch('http://localhost:5000/review', {
+        fetch('https://peaceful-badlands-33828.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -41,7 +41,7 @@ const AddReview = () => {
 
 
     return (
-        <div className='w-1/2 mx-auto'>
+        <div className='w-1/2 mx-auto p-20'>
 
             <form onSubmit={handleSubmit(onSubmit)} className='w-full'>
 
@@ -49,7 +49,7 @@ const AddReview = () => {
                 {/* review field  */}
                 <div className="form-control w-full max-w-xs">
 
-                    <textarea class="textarea" {...register("review", {
+                    <textarea className="textarea" {...register("review", {
                         required: {
                             value: true,
                             message: 'Review is required'

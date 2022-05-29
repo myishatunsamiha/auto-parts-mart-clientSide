@@ -44,7 +44,7 @@ const Signup = () => {
 
     if (token) {    // for both type of users
         console.log('redirect to home page');
-        navigate('/purchase');
+        navigate('/');
     }
 
 

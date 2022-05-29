@@ -1,7 +1,6 @@
 import React from 'react';
-import { GlobeIcon } from '@heroicons/react/solid'
-import { UserGroupIcon } from '@heroicons/react/solid'
-import { ThumbUpIcon } from '@heroicons/react/solid'
+
+
 
 const HightLights = () => {
     const year = new Date().getFullYear();
@@ -12,8 +11,8 @@ const HightLights = () => {
 
             <div className='grid lg:grid-cols-2 gap-5 pt-4'>
 
-                <div class="card bg-yellow-300 shadow-xl cardHover">
-                    <div class="card-body flex flex-row items-center justify-around">
+                <div className="card bg-yellow-300 shadow-xl cardHover">
+                    <div className="card-body flex flex-row items-center justify-around">
                         <div>
                             <p className='font-bold'>BIG SALE COUNTDOWN</p>
                             <p className='text-5xl font-bold mt-2 mb-4'>HURRY UP!</p>
@@ -34,8 +33,8 @@ const HightLights = () => {
                 </div>
 
 
-                <div class="card bg-gray-700 shadow-xl cardHover">
-                    <div class="card-body m-10 border-4 border-yellow-300 rounded-lg text-center">
+                <div className="card bg-gray-700 shadow-xl cardHover">
+                    <div className="card-body m-10 border-4 border-yellow-300 rounded-lg text-center">
                         <p className='font-bold text-white '>ORIGINAL CAR PARTS <span className='text-yellow-500'>{year}</span></p>
                         <p className='font-bold text-white text-2xl'>DISCOVER NEW ARRIVALS</p>
                         <p className='font-bold text-yellow-500'>1000+ spare car parts!</p>

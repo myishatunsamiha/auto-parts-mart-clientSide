@@ -12,7 +12,7 @@ const MyProfile = () => {
 
 
     const { data: userProfile, isLoading, refetch } = useQuery('userProfile', () =>
-        fetch(`http://localhost:5000/user/${user.email}`, {
+        fetch(`https://peaceful-badlands-33828.herokuapp.com/user/${user.email}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',    // not necessary 
@@ -41,7 +41,7 @@ const MyProfile = () => {
             linkedIn: data.linkedIn
         }
 
-        fetch(`http://localhost:5000/user/${user.email}`, {
+        fetch(`https://peaceful-badlands-33828.herokuapp.com/user/${user.email}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',

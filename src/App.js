@@ -24,6 +24,7 @@ import Payment from './pages/Dashboard/Payment';
 import NotFound from './pages/NotFound/NotFound';
 import Portfolio from './pages/Portfolio/Portfolio';
 import Blogs from './pages/Blogs/Blogs';
+import RequireNonAdmin from './pages/Login/RequireNonAdmin';
 
 
 
@@ -42,9 +43,9 @@ function App() {
         <Route path="purchase/:id" element={<RequireAuth><Purchase /></RequireAuth>} />
         <Route path="dashboard" element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
           <Route index element={<MyProfile></MyProfile>}></Route>
-          <Route path='myOrders' element={<MyOrders></MyOrders>}></Route>
-          <Route path='addReview' element={<AddReview></AddReview>}></Route>
-          <Route path='payment/:id' element={<Payment></Payment>}></Route>
+          <Route path='myOrders' element={<RequireNonAdmin><MyOrders></MyOrders></RequireNonAdmin>}></Route>
+          <Route path='addReview' element={<RequireNonAdmin><AddReview></AddReview></RequireNonAdmin>}></Route>
+          <Route path='payment/:id' element={<RequireNonAdmin><Payment></Payment></RequireNonAdmin>}></Route>
           <Route path='allOrders' element={<RequireAdmin><ManageAllOrders></ManageAllOrders></RequireAdmin>}></Route>
           <Route path='addProduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
           <Route path='makeAdmin' element={<RequireAdmin><MakeAdmin></MakeAdmin></RequireAdmin>}></Route>

@@ -5,7 +5,7 @@ import Loading from '../Shared/Loading';
 
 const MakeAdmin = () => {
     // getting all the users from db
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://peaceful-badlands-33828.herokuapp.com/user', {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -18,7 +18,7 @@ const MakeAdmin = () => {
 
     // updating the user 
     const makeAdmin = (user) => {
-        fetch(`http://localhost:5000/user/admin/${user.email}`, {
+        fetch(`https://peaceful-badlands-33828.herokuapp.com/user/admin/${user.email}`, {
             method: 'PUT',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -38,8 +38,8 @@ const MakeAdmin = () => {
     return (
         <div>
 
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>

@@ -35,7 +35,7 @@ const AddProduct = () => {
                     }
 
                     // post a product(car parts) to mongodb database
-                    fetch('http://localhost:5000/product', {
+                    fetch('https://peaceful-badlands-33828.herokuapp.com/product', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -166,7 +166,7 @@ const AddProduct = () => {
                     <label className="label">
                         <span className="label-text">Description</span>
                     </label>
-                    <textarea class="textarea" {...register("description")} placeholder="description"></textarea>
+                    <textarea className="textarea" {...register("description")} placeholder="description"></textarea>
                 </div>
 
                 {/* submit button */}

@@ -19,7 +19,7 @@ const Purchase = () => {
 
     // get the product data
     const { data: product, isLoading, refetch } = useQuery('product', () =>
-        fetch(`http://localhost:5000/product/${id}`, {
+        fetch(`https://peaceful-badlands-33828.herokuapp.com/product/${id}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',    // not necessary 
@@ -64,7 +64,7 @@ const Purchase = () => {
         }
 
 
-        fetch('http://localhost:5000/order', {
+        fetch('https://peaceful-badlands-33828.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -97,22 +97,22 @@ const Purchase = () => {
                 {
                     product &&
 
-                    <div class="card bg-base-100 shadow-xl max-w-sm">
+                    <div className="card bg-base-100 shadow-xl max-w-sm">
                         <figure><img src={product.img} className='w-full' alt="Shoes" /></figure>
-                        <div class="card-body">
+                        <div className="card-body">
                             <p>name: {product.name}</p>
                             <p>description: {product.description}</p>
                             <p>min order quantity: {product.minQnt}</p>
                             <p>available quantity: {product.availableQnt}</p>
                             <p>per unit price: {product.price}</p>
-                            <Link to={`/purchase/${product._id}`}><button class="btn btn-primary">Purchase</button></Link>
+                            <Link to={`/purchase/${product._id}`}><button className="btn btn-primary">Purchase</button></Link>
                         </div>
                     </div>
 
                 }
 
-                <div class="card bg-yellow-200 shadow-xl max-w-sm">
-                    <div class="card-body">
+                <div className="card bg-yellow-200 shadow-xl max-w-sm">
+                    <div className="card-body">
 
                         <form className='mx-auto' onSubmit={handleSubmit(onSubmit)}>
                             {/* name field  */}
